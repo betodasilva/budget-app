@@ -29,7 +29,12 @@ var budgetController = (function(){
         addItem: function(type, des, val){
             var newItem, ID;
 
-            ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+            if (data.allItems[type].length > 0) {
+                ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+            } else {
+                ID = 0;
+            }
+            
 
             if (type === 'exp') {
                 newItem = new Expense(ID, des, val);
@@ -88,10 +93,11 @@ var controller = (function(budgetCtrl, UICtrl){
     };
 
     var ctrlAddItem = function() {
+        var input, newItem;
         // 1. get field input data
-        var input = UIController.getInput();
-
+        input = UIController.getInput();
         // 2. add item to budget controller
+        newItem = budgetController.addItem(input.type, input.description, input.value);
         // 3. add the item to the UI
         // 4. calculate the budget
         // 5. display the budget on the UI
