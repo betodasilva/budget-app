@@ -58,7 +58,9 @@ var UIController = (function(){
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
-        inputBtn: '.add__btn'
+        inputBtn: '.add__btn',
+        expensesContainer: '.expenses__list',
+        incomesContainer: '.income__list'
     };
 
     return {
@@ -73,18 +75,24 @@ var UIController = (function(){
         },
 
         addListItem: function(obj, type){
-            var html;
+            var html, newHTML, element;
             // create html string
             if (type === 'inc') {
                 html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                element = document.querySelector(DOMstrings.incomesContainer);
             } else if (type === 'exp') {
                 html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                element = document.querySelector(DOMstrings.expensesContainer);
             }
             
             // replace the placeholder text with real data
+            newHTML = html.replace("%id%", obj.id);
+            newHTML = newHTML.replace("%description%", obj.description);
+            newHTML = newHTML.replace("%value%", obj.value);
 
             // insert the html into the DOM
 
+            element.insertAdjacentHTML('beforeend', newHTML);
         },
 
         getDOMstrings: function(){
@@ -115,7 +123,7 @@ var controller = (function(budgetCtrl, UICtrl){
         // 2. add item to budget controller
         newItem = budgetController.addItem(input.type, input.description, input.value);
         // 3. add the item to the UI
-
+        UICtrl.addListItem(newItem, input.type);
         // 4. calculate the budget
         // 5. display the budget on the UI
     };
