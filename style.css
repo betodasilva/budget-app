@@ -32,19 +32,21 @@ body {
 **********************************************/
 
 .top {
-    height: 40vh;
+    min-height: 40vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
     background-size: cover;
     background-position: center;
     position: relative;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 .budget {
-    position: absolute;
+    position: relative;
     width: 350px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
     color: #fff;
 }
 
