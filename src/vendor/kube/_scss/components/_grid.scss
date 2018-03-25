@@ -36,10 +36,10 @@
 @include generate-grid-columns;
 
 // Offset
-[class^='offset-'],
-[class*=' offset-'] {
+.gutters > [class^='offset-'],
+.gutters > [class*=' offset-'] {
     @include breakpoint(sm) {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 }
 
