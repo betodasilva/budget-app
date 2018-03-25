@@ -638,9 +638,9 @@ a.muted:hover {
   margin-left: calc(100% + 2%) !important; }
 
 @media (max-width: 768px) {
-  [class^='offset-'],
-  [class*=' offset-'] {
-    margin-left: 0; } }
+  .gutters > [class^='offset-'],
+  .gutters > [class*=' offset-'] {
+    margin-left: 0 !important; } }
 
 .first {
   order: -1; }
