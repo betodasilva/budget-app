@@ -1,0 +1,85 @@
+$color-cs-primary: #0E9577;
+$color-cs-secondary: #04DEAD;
+$color-cs-terciary: #F1EFB9;
+$color-cs-bg: #FBFAE1;
+
+
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Signika', sans-serif;
+    color: $color-darkgray;
+}
+
+
+body {
+    font-family: 'Signika', sans-serif;
+}
+
+p,
+span,
+blockquote,
+cite {
+    color: $color-midgray;
+}
+
+p {
+   line-height: 28px;
+}
+
+
+img {
+    vertical-align: middle;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    @media (min-width: 400px) {
+        width: 85%;
+        padding: 0;
+    }
+
+    @media (min-width: 550px) {
+        width: 80%;
+    }
+}
+
+.txt-white {
+    color: #fff;
+}
+
+
+@mixin tablet {
+    @media (min-width: #{$sm}) and (max-width: #{$md - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$md}) {
+        @content;
+    }
+}
+
+.skip-link {
+    display: none;
+}

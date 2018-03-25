@@ -1,0 +1,215 @@
+@import '../vendor/kube/kube.scss',
+        '_base';
+
+.budget-header__bg {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 20vh;
+    background-image: url('/src/images/budget-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    filter: blur(0.5px);
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;left: 0;right: 0;bottom: 0;
+        @include gradient-radial(#434343, #000);
+        // @include gradient-radial(#000, #032424);
+        opacity: 0.6;
+        // mix-blend-mode: multiply;
+    }
+    // @include gradient-vertical(#0575E6, #00F260);
+    >.container {
+        z-index: 9;
+    }
+}
+.budget-header__title {
+    z-index: 15;
+    span { color: $color-cs-primary !important; display: inline-block; background-color: $color-cs-terciary; padding: 6px;}
+    color: $color-cs-terciary !important;
+    display: inline-block;
+    padding: 6px;
+    // padding: 10px;
+    // text-align: center;
+    font-family: 'Signika', sans-serif !important;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    // border-top: 20px solid $color-cs-secondary;
+    // border-bottom: 20px solid $color-cs-secondary;
+    // border-radius: 10px;
+}
+.budget-header__text {
+    line-height: 1;
+    padding: 6px;
+}
+.budget-app {
+    background-color: $color-cs-bg;
+    padding-top: 1.125em;
+    padding-bottom: 1.125em;
+    @include desktop {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+.budget {
+    z-index: 10;
+    padding: 20px;
+    // background-color: rgba($color: $color-cs-primary, $alpha: 0.76);
+    // border-radius: 10px;
+    // margin-bottom: 20px;
+    // margin-top: 20px;
+    vertical-align: middle;
+    p, 
+    span,
+    div {
+        color: $color-cs-terciary;
+        font-weight: 700;
+    }
+}
+
+.budget,
+.budget__income,
+.budget__expenses {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.budget__title,
+.budget__value,
+.budget__income--text,
+.budget__expenses--text, {
+    width: 100%;
+
+}
+
+.budget__income,
+.budget__expenses {
+    flex: 1;
+    width: 50%;
+}
+
+.button.cs-secondary {
+    @include button($color-cs-bg, $color-cs-secondary);
+}
+
+.button.cs-primary{
+    @include button($color-cs-bg, $color-cs-primary);
+}
+
+.item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    .item__description {
+        width: 100%;
+        flex-grow: 1;
+        color: $color-midgray;
+    }
+
+    .item__value {
+        flex-grow: 1;
+        flex-basis: 25%;
+        align-self: center;
+        line-height: 46px;
+    }
+
+    .item__percentage {
+        flex-basis: 15%;
+    }
+
+    .item__delete {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: visibility 280ms linear, transform 280ms ease, opacity 280ms ease 80ms;
+    }
+
+    &.align-right .item__delete {
+        transform: translateX(-20px);
+    }
+
+    &:hover .item__delete{
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.income__title,
+.expenses__title {
+    letter-spacing: 1.3333px;
+}
+
+.income__title {
+    color: $color-cs-primary;
+    @include desktop {
+        text-align: right;
+        margin-right: 18px;
+    }
+}
+
+.expenses__title {
+    color: $color-error;
+    @include desktop {
+        margin-left: 18px;
+    }
+    
+}
+
+.income__list .item {
+    .item__value,
+    .item__percentage {
+        color: $color-success;
+    }
+}
+
+.add__text {
+    @include desktop {
+        margin-bottom: 26px;
+    }
+}
+
+.income__list,
+.expenses__list {
+    height: 360px;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.item.align-right {
+    @include desktop {
+        .item__value,
+        .item__description {
+            text-align: right;
+        }
+
+        .item__value {
+            order: 2;
+        }
+    }
+    
+}
+
+.expenses__list .item{
+    .item__value,
+    .item__percentage {
+        color: $color-error;
+    }
+} 
+
+.add__type,
+.add__description,
+.add__value {
+    margin-bottom: 20px;
+}
+
+.add__text{
+    color: $color-midgray;
+}

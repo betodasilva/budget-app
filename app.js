@@ -165,10 +165,10 @@ var UIController = (function(){
             var html, newHTML, element;
             // create html string
             if (type === 'inc') {
-                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item align-right" id="inc-%id%"><div class="item__description">%description%</div><div class="item__value">%value%</div><div class="item__delete"><span class="item__delete--btn label error"><i class="ion-ios-close-outline"></i></span></div></div>';
                 element = document.querySelector(DOMstrings.incomesContainer);
             } else if (type === 'exp') {
-                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html = '<div class="item" id="exp-%id%"><div class="item__description">%description%</div><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><span class="item__delete--btn label error"><i class="ion-ios-close-outline"></i></span></div></div>'
                 element = document.querySelector(DOMstrings.expensesContainer);
             }
             
