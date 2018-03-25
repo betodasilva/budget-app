@@ -2210,7 +2210,7 @@ img {
   padding-top: 20px;
   padding-bottom: 20px;
   min-height: 20vh;
-  background-image: url("/src/images/budget-bg.jpg");
+  background-image: url("src/images/budget-bg.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
