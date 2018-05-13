@@ -47,10 +47,18 @@
     background-color: $color-cs-bg;
     padding-top: 1.125em;
     padding-bottom: 1.125em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     @include desktop {
         padding-top: 40px;
         padding-bottom: 40px;
     }
+}
+
+.budget__expenses--percentage {
+    margin-left: 20px;
 }
 
 .budget {
